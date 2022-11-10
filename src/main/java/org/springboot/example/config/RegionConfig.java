@@ -1,4 +1,4 @@
-package org.springboot.example.upgrade;
+package org.springboot.example.config;
 
 import lombok.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;

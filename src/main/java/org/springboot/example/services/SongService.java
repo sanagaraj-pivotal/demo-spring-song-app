@@ -22,7 +22,7 @@ import org.springboot.example.controllers.dto.Song;
 import org.springboot.example.controllers.dto.SongPlayedRequest;
 import org.springboot.example.controllers.dto.TopSongs;
 import org.springboot.example.entity.SongStat;
-import org.springboot.example.upgrade.RegionConfig;
+import org.springboot.example.config.RegionConfig;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
