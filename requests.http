@@ -1,0 +1,28 @@
+GET http://localhost:8090/played-song
+Accept: application/json
+
+{ "songId" : 1, "region": "DE" }
+###
+
+GET http://localhost:8090/songs
+Accept: application/json
+
+###
+
+GET http://localhost:8090/song-stats
+Accept: application/json
+
+####
+
+# curl -X POST -H "Content-Type: application/json" -d '{"songId":1, "region": "kn", "timesPlayed":100}' http://localhost:8090/song-stats
+POST http://localhost:8090/song-stats
+Content-Type: application/json
+
+{
+  "songId": 1,
+  "region": "kn",
+  "timesPlayed": 100
+}
+
+###
+

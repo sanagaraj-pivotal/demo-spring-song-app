@@ -14,13 +14,21 @@
  * limitations under the License.
  */
 
-package org.springboot.example.controllers.dto;
+package org.springboot.example.songs.persistence;
 
-import lombok.Value;
 
-@Value
-public class SongPlayedRequest {
-    private Song song;
-    private int playedTimes;
-    private String region;
+import lombok.*;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Table(name = "SONGS")
+public class Song {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Setter
+    @Column(name = "SONGNAME", nullable = false)
+    private String songName;
 }

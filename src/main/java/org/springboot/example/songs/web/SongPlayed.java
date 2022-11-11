@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
-package org.springboot.example.services;
+package org.springboot.example.songs.web;
 
-import org.springboot.example.entity.SongStat;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import lombok.Value;
 
-import java.util.List;
+import javax.validation.constraints.Positive;
+import java.util.Locale;
 
-public interface SongStatRepository extends PagingAndSortingRepository<SongStat, String> {
-    List<SongStat> findTop10SongsByRegionOrderByTimesPlayedDesc(String region);
+@Value
+public class SongPlayed {
+    @Positive
+    private Long songId;
+    private String region;
+    @Positive
+    private int timesPlayed;
 }

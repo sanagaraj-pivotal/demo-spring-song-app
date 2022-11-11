@@ -14,27 +14,17 @@
  * limitations under the License.
  */
 
-package org.springboot.example.entity;
+package org.springboot.example.songs.persistence;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
 
-@Entity
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-public class SongStat {
+public interface SongStatRepository extends JpaRepository<SongStat, Long>,  PagingAndSortingRepository<SongStat, Long> {
+    List<SongStat> findTop3SongsByRegionOrderByTimesPlayedDesc(Locale region);
 
-    @Id
-    private String id;
-
-    private String songName;
-
-    private Integer timesPlayed;
-
-    private String region;
+    Optional<SongStat> findOptionalBySongAndRegion(Song song, Locale region);
 }

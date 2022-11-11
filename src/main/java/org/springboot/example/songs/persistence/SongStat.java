@@ -14,19 +14,38 @@
  * limitations under the License.
  */
 
-package org.springboot.example.controllers.dto;
+package org.springboot.example.songs.persistence;
 
-import lombok.Builder;
-import lombok.Value;
-import org.springboot.example.songs.persistence.SongStat;
+import lombok.Getter;
+import lombok.Setter;
+import org.springboot.example.songs.persistence.Song;
 
-import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.Positive;
 import java.util.Locale;
 
-@Value
-@Builder
-public class TopSongs {
+@Entity
+@Getter
+@Table(name = "SONG_STATS")
+public class SongStat {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(targetEntity = Song.class, optional = false)
+    @Setter
+    private Song song;
+
+    @Setter
+    @Positive
+    @Column(name = "TIMES_PLAYED")
+    private int timesPlayed;
+
+    @Setter
     private Locale region;
-    private String title;
-    private List<SongStat> songs;
+
+    public void incrementTimesPlayed(int timesPlayed) {
+        this.timesPlayed += timesPlayed;
+    }
 }
