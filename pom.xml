@@ -45,10 +45,10 @@
             <artifactId>wiremock-jre8</artifactId>
             <version>2.35.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.johnzon</groupId>
-            <artifactId>johnzon-core</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.johnzon</groupId>-->
+<!--            <artifactId>johnzon-core</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
